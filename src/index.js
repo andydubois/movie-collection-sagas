@@ -46,12 +46,25 @@ function* getDetails(action) {
     }
 }
 
-function* getGenres
+function* getGenres(action) {
+    console.log('client side genre GET', action);
+    try {
+        let response = yield axios.get(`/api/details/genre/${action.payload}`);
+        console.log('genre GET saga response', response.data);
+        yield put ({
+            type: 'SET_GENRES',
+            payload: response.data
+        });
+    } catch (error) {
+        console.log('error in details GET client side', error)
+    }
+}
 
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery("FETCH_MOVIES", getMovies)
     yield takeEvery("FETCH_DETAILS", getDetails)
+    yield takeEvery("FETCH_GENRES", getGenres)
 }
 
 // Create sagaMiddleware
