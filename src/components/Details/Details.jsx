@@ -8,15 +8,28 @@ class Details extends Component {
     this.getMovies();
   }
 
-  getMovies() {
+  getDetails() {
     this.props.dispatch({
-      type: "FETCH_MOVIES"
+      type: "FETCH_DETAILS"
     });
   }
 
   render() {
     return (
       <div>
+        {this.props.store.detailsReducer.map(details => {
+          return (
+            <div>
+              <h2>{this.props.movie.title}</h2>
+              <img
+                src={this.props.movie.poster}
+                alt={this.props.movie.name}
+                onClick={this.goToDetails}
+              />
+              <p>{this.props.movie.description}</p>
+            </div>
+          );
+        })}
       </div>
     );
   }

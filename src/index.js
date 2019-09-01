@@ -36,7 +36,7 @@ function* getDetails(action) {
     console.log('client side details GET', action);
     try {
         let response = yield axios.get('/api/details');
-        console.log('details GET sada response', response.data);
+        console.log('details GET saga response', response.data);
         yield put ({
             type: 'SET DETAILS',
             payload: response.data
@@ -93,6 +93,7 @@ const storeInstance = createStore(
     combineReducers({
         movieReducer,
         genreReducer,
+        detailsReducer
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
