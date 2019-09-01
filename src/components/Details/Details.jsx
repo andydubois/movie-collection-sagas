@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 //Components
 
 class Details extends Component {
-  //runs nested functions on page load
+//   runs nested functions on page load
     componentDidMount() {
     this.getDetails();
   }
@@ -20,6 +20,10 @@ class Details extends Component {
   //returns user to home page.  Used with onClick
   backToHomePage = action => {
       this.props.history.push('/')
+  }
+
+  goToEditPage = action => {
+      this.props.history.push(`/edit/${this.props.match.params.id}`)
   }
 
   render() {
@@ -45,7 +49,7 @@ class Details extends Component {
         />
         <p>{this.props.store.detailsReducer.description}</p>
         <button onClick={this.backToHomePage}>Return</button>
-        <button>Edit</button>
+        <button onClick={this.goToEditPage}>Edit Details</button>
       </div>
     );
   }
