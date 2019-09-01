@@ -8,6 +8,7 @@ import Button from "@material-ui/core/Button";
 class EditPage extends Component {
   //storing title and description of selected movie as state
   state = {
+    id: this.props.store.detailsReducer.id,
     title: this.props.store.detailsReducer.title,
     description: this.props.store.detailsReducer.description
   };
@@ -41,7 +42,7 @@ class EditPage extends Component {
     //take current local state and sends to reducer
     this.props.dispatch({
       type: "CHANGE_TITLE",
-      payload: this.state.title
+      payload: this.state
     });
   };
 

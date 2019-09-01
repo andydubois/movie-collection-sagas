@@ -61,11 +61,27 @@ function* getGenres(action) {
     }
 }
 
+function* setTitle(action) {
+    console.log('changing title to', action.payload);
+    let id = action.payload.id
+    let title = action.payload.title
+    try {
+        yield axios.put(`api/details/updateTitle/${id}`, title);
+        yield put ({
+            type: "FETCH_DETAILS",
+            payload: action.payload.id
+        })
+    } catch (error) {
+        console.log('error in POST', error);
+    }
+}
+
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery("FETCH_MOVIES", getMovies)
     yield takeEvery("FETCH_DETAILS", getDetails)
     yield takeEvery("FETCH_GENRES", getGenres)
+    yield takeEvery("CHANGE_TITLE", setTitle)
 }
 
 // Create sagaMiddleware
@@ -103,6 +119,15 @@ const detailsReducer = (state = [], action) => {
                 return state;
     }
 }
+
+// const titleChangeReducer = (state = "", action) => {
+//     switch(action.type) {
+//         case "CHANGE_TITLE":
+//             return action.payload
+//         default:
+//             return state
+//     }
+// }
 
 // Create one store that all components can use
 const storeInstance = createStore(
