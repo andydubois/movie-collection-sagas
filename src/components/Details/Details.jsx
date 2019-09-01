@@ -4,16 +4,17 @@ import { connect } from "react-redux";
 //Components
 
 class Details extends Component {
-//   componentDidMount() {
-//     this.getDetails();
-//   }
+  componentDidMount() {
+    this.getDetails();
+  }
 
-//   getDetails() {
-//     this.props.dispatch({
-//       type: "FETCH_DETAILS",
-//       payload: this.props.params.id
-//     });
-//   }
+  //makes sure details page will reload with information even when refreshed
+  getDetails() {
+    this.props.dispatch({
+      type: "FETCH_DETAILS",
+      payload: this.props.match.params.id
+    });
+  }
 
   render() {
               let genreList= this.props.store.genreReducer.map((genre) => {
@@ -36,6 +37,8 @@ class Details extends Component {
           alt={this.props.store.detailsReducer.name}
         />
         <p>{this.props.store.detailsReducer.description}</p>
+        <button>Return</button>
+        <button>Edit</button>
       </div>
     );
   }

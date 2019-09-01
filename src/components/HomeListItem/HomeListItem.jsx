@@ -12,10 +12,10 @@ class Home extends Component {
   }
 
   getGenres() {
-      this.props.dispatch({
-        type: "FETCH_GENRES",
-        payload: this.props.movie.id
-      });
+    this.props.dispatch({
+      type: "FETCH_GENRES",
+      payload: this.props.movie.id
+    });
   }
 
   goToDetails = action => {
@@ -27,15 +27,21 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-        <h2>{this.props.movie.title}</h2>
-        <img
-          src={this.props.movie.poster}
-          alt={this.props.movie.name}
-          onClick={this.goToDetails}
-        />
-        <p>{this.props.movie.description}</p>
-      </div>
+      <tr>
+        <td>
+          <h2>{this.props.movie.title}</h2>
+        </td>
+        <td>
+          <img
+            src={this.props.movie.poster}
+            alt={this.props.movie.name}
+            onClick={this.goToDetails}
+          />
+        </td>
+        <td>
+          <p>{this.props.movie.description}</p>
+        </td>
+      </tr>
     );
   }
 }
