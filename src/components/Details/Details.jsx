@@ -16,9 +16,21 @@ class Details extends Component {
 //   }
 
   render() {
+              let genreList= this.props.store.genreReducer.map((genre) => {
+                  return (
+                      <li>
+                          {genre.name}
+                      </li>
+                  )
+              })
     return (
+
+
       <div>
         <h2>{this.props.store.detailsReducer.title}</h2>
+        <ul>
+            {genreList}
+        </ul>
         <img
           src={this.props.store.detailsReducer.poster}
           alt={this.props.store.detailsReducer.name}
