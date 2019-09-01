@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
+import { withRouter } from "react-router-dom";
+
 
 class Home extends Component {
 
@@ -14,6 +16,8 @@ class Home extends Component {
     }
 
 
+
+
     render () {
         return (
             <div>
@@ -24,11 +28,10 @@ class Home extends Component {
         );
     }
 }
-southdale mall near flower market 66th and france
 
 
 const mapStateToProps = store => ({
   store
 });
 
-export default connect(mapStateToProps)(Home);
+export default withRouter(connect(mapStateToProps)(Home));
