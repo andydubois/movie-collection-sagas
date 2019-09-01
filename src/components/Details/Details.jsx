@@ -18,16 +18,12 @@ class Details extends Component {
   render() {
     return (
       <div>
-        {this.props.store.detailsReducer.map(details => {
-          return (
-            <div>
-              <h2>{details.title}</h2>
-              <h4>{details.name}</h4>
-              <img src={details.poster} alt={details.name} />
-              <p>{details.description}</p>
-            </div>
-          );
-        })}
+        <h2>{this.props.store.detailsReducer.title}</h2>
+        <img
+          src={this.props.store.detailsReducer.poster}
+          alt={this.props.store.detailsReducer.name}
+        />
+        <p>{this.props.store.detailsReducer.description}</p>
       </div>
     );
   }

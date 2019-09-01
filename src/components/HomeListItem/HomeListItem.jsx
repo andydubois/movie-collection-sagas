@@ -11,8 +11,16 @@ class Home extends Component {
     });
   }
 
+  getGenres() {
+      this.props.dispatch({
+        type: "FETCH_GENRES",
+        payload: this.props.movie.id
+      });
+  }
+
   goToDetails = action => {
     this.getDetails();
+    this.getGenres();
     this.props.history.push(`/details/${this.props.movie.id}`);
     console.log(`/details/{this.props.movie.id}`);
   };
