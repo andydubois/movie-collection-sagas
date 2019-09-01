@@ -35,33 +35,56 @@ class EditPage extends Component {
     console.log(this.state.title, this.state.description);
   };
 
+  //function to run when submit button is clicked and "submits" form
+  handleTitleSubmit = event => {
+    event.preventDefault();
+    //take current local state and sends to reducer
+    this.props.dispatch({
+      type: "CHANGE_TITLE",
+      payload: this.state.title
+    });
+  };
+
+  //returns user to previous details page
   returnToDetailPage = action => {
-      this.props.history.push(`/details/${this.props.match.params.id}`);
-  }
+    this.props.history.push(`/details/${this.props.match.params.id}`);
+  };
 
   render() {
     return (
       <div>
         <p>Edit time</p>
-        <form>
+        <form onSubmit={this.handleTitleSubmit}>
           <TextField
             label='Edit movie title'
-            defaultValue={this.state.title}
+            defaultValue={this.props.store.detailsReducer.title}
             onChange={event => this.handleChange("title", event)}
             fullWidth
           />
-          <br />
+          <Button className='nextButton' variant='contained'>
+            Submit
+          </Button>
+        </form>
+        <form>
           <TextField
             label='Edit movie description'
-            defaultValue={this.state.description}
+            defaultValue={this.props.store.detailsReducer.description}
             onChange={event => this.handleChange("description", event)}
             multiline={true}
             rows={10}
             fullWidth
           />
-          <Button>Submit</Button>
+          <Button className='nextButton' variant='contained'>
+            Submit
+          </Button>
         </form>
-        <Button>Reset</Button>
+
+        <Button
+          onClick={this.returnToDetailPage}
+          variant='contained'
+          color='secondary'>
+          Reset
+        </Button>
       </div>
     );
   }
