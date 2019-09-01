@@ -65,8 +65,9 @@ function* setTitle(action) {
     console.log('changing title to', action.payload);
     let id = action.payload.id
     let title = action.payload.title
+    console.log("index.js setTitle", action.payload.id, action.payload.title);
     try {
-        yield axios.put(`api/details/updateTitle/${id}`, title);
+        yield axios.put(`api/details/updateTitle/${id}`, action.payload.title);
         yield put ({
             type: "FETCH_DETAILS",
             payload: action.payload.id

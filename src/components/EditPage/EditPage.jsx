@@ -44,6 +44,7 @@ class EditPage extends Component {
       type: "CHANGE_TITLE",
       payload: this.state
     });
+    console.log('changing title to', this.state.title)
   };
 
   //returns user to previous details page
@@ -58,11 +59,11 @@ class EditPage extends Component {
         <form onSubmit={this.handleTitleSubmit}>
           <TextField
             label='Edit movie title'
-            defaultValue={this.props.store.detailsReducer.title}
+            defaultValue={this.state.title}
             onChange={event => this.handleChange("title", event)}
             fullWidth
           />
-          <Button className='nextButton' variant='contained'>
+          <Button type='submit' className='nextButton' variant='contained'>
             Submit
           </Button>
         </form>
