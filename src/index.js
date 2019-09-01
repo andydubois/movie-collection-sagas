@@ -35,16 +35,18 @@ function* getMovies(action) {
 function* getDetails(action) {
     console.log('client side details GET', action);
     try {
-        let response = yield axios.get('/api/details');
+        let response = yield axios.get(`/api/details/${action.payload}`);
         console.log('details GET saga response', response.data);
         yield put ({
-            type: 'SET DETAILS',
+            type: 'SET_DETAILS',
             payload: response.data
         });
     } catch (error) {
         console.log('error in details GET client side', error)
     }
 }
+
+function* getGenres
 
 // Create the rootSaga generator function
 function* rootSaga() {

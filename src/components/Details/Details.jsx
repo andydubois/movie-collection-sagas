@@ -4,15 +4,16 @@ import { connect } from "react-redux";
 //Components
 
 class Details extends Component {
-  componentDidMount() {
-    this.getMovies();
-  }
+//   componentDidMount() {
+//     this.getDetails();
+//   }
 
-  getDetails() {
-    this.props.dispatch({
-      type: "FETCH_DETAILS"
-    });
-  }
+//   getDetails() {
+//     this.props.dispatch({
+//       type: "FETCH_DETAILS",
+//       payload: this.props.params.id
+//     });
+//   }
 
   render() {
     return (
@@ -20,13 +21,10 @@ class Details extends Component {
         {this.props.store.detailsReducer.map(details => {
           return (
             <div>
-              <h2>{this.props.movie.title}</h2>
-              <img
-                src={this.props.movie.poster}
-                alt={this.props.movie.name}
-                onClick={this.goToDetails}
-              />
-              <p>{this.props.movie.description}</p>
+              <h2>{details.title}</h2>
+              <h4>{details.name}</h4>
+              <img src={details.poster} alt={details.name} />
+              <p>{details.description}</p>
             </div>
           );
         })}

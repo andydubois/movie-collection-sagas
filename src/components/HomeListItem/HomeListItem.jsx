@@ -3,20 +3,19 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 class Home extends Component {
-  componentDidMount() {
-    this.getMovies();
-  }
-
-  getMovies() {
+  //retrieves details for movie with specified ID and saves in reducer
+  getDetails() {
     this.props.dispatch({
-      type: "FETCH_MOVIES"
+      type: "FETCH_DETAILS",
+      payload: this.props.movie.id
     });
   }
 
-  goToDetails(event) {
-    this.props.history.push(`/details/{this.props.movie.id}`);
+  goToDetails = action => {
+    this.getDetails();
+    this.props.history.push(`/details/${this.props.movie.id}`);
     console.log(`/details/{this.props.movie.id}`);
-  }
+  };
 
   render() {
     return (
