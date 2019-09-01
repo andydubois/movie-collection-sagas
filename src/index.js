@@ -31,7 +31,7 @@ function* getMovies(action) {
     }
 }
 
-//GET information for details paid of specified movie
+//GET information for details of specified movie
 function* getDetails(action) {
     console.log('client side details GET', action);
     try {
@@ -46,6 +46,7 @@ function* getDetails(action) {
     }
 }
 
+//GET information for genres of specified movie
 function* getGenres(action) {
     console.log('client side genre GET', action);
     try {

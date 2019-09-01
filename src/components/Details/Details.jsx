@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 //Components
 
 class Details extends Component {
-  componentDidMount() {
+  //runs nested functions on page load
+    componentDidMount() {
     this.getDetails();
   }
 
@@ -16,7 +17,13 @@ class Details extends Component {
     });
   }
 
+  //returns user to home page.  Used with onClick
+  backToHomePage = action => {
+      this.props.history.push('/')
+  }
+
   render() {
+      //maps genreReducer to list all genres if movie has more than one.
               let genreList= this.props.store.genreReducer.map((genre) => {
                   return (
                       <li>
@@ -37,7 +44,7 @@ class Details extends Component {
           alt={this.props.store.detailsReducer.name}
         />
         <p>{this.props.store.detailsReducer.description}</p>
-        <button>Return</button>
+        <button onClick={this.backToHomePage}>Return</button>
         <button>Edit</button>
       </div>
     );
