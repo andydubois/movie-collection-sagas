@@ -1,40 +1,25 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import "./Header.css"
 
-//Components
-import HomeListItem from "../HomeListItem/HomeListItem";
+//Material UI Components
 
 class Header extends Component {
-  componentDidMount() {
-    this.getMovies();
-  }
-
-  getMovies() {
-    this.props.dispatch({
-      type: "FETCH_MOVIES"
-    });
-  }
 
   render() {
+
     return (
-      <div className='react-transition swipe-left'>
-        <table>
-          <thead>
-            <tr>
-              <th></th>
-              <th></th>
-              <th>
-                <h2>Movie Synopsis</h2>(Click movie posters for more details)
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.props.store.movieReducer.map(movie => {
-              return <HomeListItem movie={movie} />;
-            })}
-          </tbody>
-        </table>
-      </div>
+      <header className='Header'>
+        <div className='row'>
+            <div className="col-2">
+            </div>
+          <div className='col-8'>
+            <h1 className='App-title'>Movie Library: <br />{this.props.title}</h1>
+          </div>
+          <div className='col-2'>
+          </div>
+        </div>
+      </header>
     );
   }
 }
@@ -43,4 +28,4 @@ const mapStateToProps = store => ({
   store
 });
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(Header);

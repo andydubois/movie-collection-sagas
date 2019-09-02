@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Header from "../Header/Header";
 
 //Material UI Components
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import Paper from "@material-ui/core/Paper";
 
 class EditPage extends Component {
   //storing title and description of selected movie as state
@@ -73,40 +75,55 @@ class EditPage extends Component {
 
   render() {
     return (
-      <div className='react-transition swipe-right'>
-        <p>Edit time</p>
-        <form onSubmit={this.handleTitleSubmit}>
-          <TextField
-            label='Edit movie title'
-            defaultValue={this.props.store.detailsReducer.title}
-            onChange={event => this.handleChange("title", event)}
-            fullWidth
-          />
-          <Button type='submit' className='nextButton' variant='contained'>
-            Submit
-          </Button>
-        </form>
-        <br />
-        <form onSubmit={this.handleDescriptionSubmit}>
-          <TextField
-            label='Edit movie description'
-            defaultValue={this.state.description}
-            onChange={event => this.handleChange("description", event)}
-            multiline={true}
-            rows={10}
-            fullWidth
-          />
-          <Button type='submit' className='nextButton' variant='contained'>
-            Submit
-          </Button>
-        </form>
-
-        <Button
-          onClick={this.returnToDetailPage}
-          variant='contained'
-          color='secondary'>
-          Back
-        </Button>
+      <div className='react-transition swipe-right container'>
+        <div className='row'>
+          <div className='col'></div>
+          <div className='col-6'>
+            <Paper>
+              <Header title={"Edit Movie Details"} />
+              <p>Edit time</p>
+              <form onSubmit={this.handleTitleSubmit}>
+                <TextField
+                  label='Edit movie title'
+                  defaultValue={this.props.store.detailsReducer.title}
+                  onChange={event => this.handleChange("title", event)}
+                  fullWidth
+                />
+                <Button
+                  type='submit'
+                  className='nextButton'
+                  variant='contained' color="primary">
+                  Submit
+                </Button>
+              </form>
+              <br />
+              <form onSubmit={this.handleDescriptionSubmit}>
+                <TextField
+                  label='Edit movie description'
+                  defaultValue={this.state.description}
+                  onChange={event => this.handleChange("description", event)}
+                  multiline={true}
+                  rows={10}
+                  fullWidth
+                />
+                <Button
+                  type='submit'
+                  className='nextButton'
+                  variant='contained'
+                  color="primary">
+                  Submit
+                </Button>
+              </form>
+              <Button
+                onClick={this.returnToDetailPage}
+                variant='contained'
+                color='secondary'>
+                Back
+              </Button>
+            </Paper>
+          </div>
+          <div className='col'></div>
+        </div>
       </div>
     );
   }

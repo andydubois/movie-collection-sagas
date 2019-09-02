@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "evolveLight";
+  src: url('../../Font/KeeponTruckin.ttf');
+}
+
+.detailContainer {
+    font-family: "evolveLight";
+}

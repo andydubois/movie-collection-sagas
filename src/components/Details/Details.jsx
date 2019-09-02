@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Header from "../Header/Header";
+import "./Details.css"
 
 //Material UI Components
 import Table from "@material-ui/core/Table";
@@ -8,6 +10,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import Button from "@material-ui/core/Button";
 
 class Details extends Component {
   //   runs nested functions on page load
@@ -46,33 +49,46 @@ class Details extends Component {
       return <li>{genre.name}</li>;
     });
     return (
-      <Paper>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell></TableCell>
-              <TableCell></TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            <TableRow>
-              <TableCell>
-                <h2>{this.props.store.detailsReducer.title}</h2>
-                <ul>{genreList}</ul>
-                <img
-                  src={this.props.store.detailsReducer.poster}
-                  alt={this.props.store.detailsReducer.title}
-                />
-              </TableCell>
-              <TableCell>
-                <p>{this.props.store.detailsReducer.description}</p>
-                <button onClick={this.backToHomePage}>Back to List</button>
-                <button onClick={this.goToEditPage}>Edit Details</button>
-              </TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
-      </Paper>
+      <div className='detailContainer react-transition swipe-right container'>
+        <Header title={`"${this.props.store.detailsReducer.title}"`} />
+        <Paper>
+          <Table className='detailContainer'>
+            <TableHead>
+              <TableRow>
+                <TableCell></TableCell>
+                <TableCell></TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <TableRow>
+                <TableCell>
+                  <h2>{this.props.store.detailsReducer.title}</h2>
+                  <ul>{genreList}</ul>
+                  <img
+                    src={this.props.store.detailsReducer.poster}
+                    alt={this.props.store.detailsReducer.title}
+                  />
+                </TableCell>
+                <TableCell>
+                  <p>{this.props.store.detailsReducer.description}</p>
+                  <Button
+                    variant='contained'
+                    color='secondary'
+                    onClick={this.backToHomePage}>
+                    Back to List
+                  </Button>
+                  <Button
+                    variant='contained'
+                    color='primary'
+                    onClick={this.goToEditPage}>
+                    Edit Details
+                  </Button>
+                </TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </Paper>
+      </div>
     );
   }
 }

@@ -1,5 +1,18 @@
-.App {
+@font-face {
+  font-family: "evolveLight";
+  src: url('../../Font/evolveSansLight.otf');
+}
+
+body{
+  font-family: "evolveLight"
+}
+
+.app {
   text-align: center;
+  font-family: "evolveLight";
+  background-image: url(../../images/zcX5aMjoi.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 
@@ -22,3 +35,4 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+

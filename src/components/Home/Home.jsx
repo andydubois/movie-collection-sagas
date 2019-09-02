@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import "./Home.css"
+import "./Home.css";
+import Header from "../Header/Header";
 
 //Components
 import HomeListItem from "../HomeListItem/HomeListItem";
@@ -24,16 +25,16 @@ class Home extends Component {
   }
 
   render() {
-
     return (
-      <div>
-        <div className="gridContainer">
-          <GridList cellHeight={180} className="gridList">
+      <div className='react-transition swipe-right container movieGrid'>
+        <Header title={"Home Page"} />
+        <div className='gridContainer'>
+          <GridList cellHeight={180} className='gridList'>
             <GridListTile key='Subheader' cols={2} style={{ height: "auto" }}>
               <ListSubheader component='div'>Movie List</ListSubheader>
             </GridListTile>
             {this.props.store.movieReducer.map(movie => {
-              return <HomeListItem movie={movie}/>;
+              return <HomeListItem movie={movie} />;
             })}
           </GridList>
         </div>

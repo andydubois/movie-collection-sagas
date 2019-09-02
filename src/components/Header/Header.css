@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "keepOnTruckin";
+  src: url('../../Font/KeeponTruckin.ttf');
+}
+
+.Header {
+  background-color: #ff3b3bb5;
+  height: 70px;
+  width: 100%;
+  color: white;
+  font-family: 'keepOnTruckin', sans-serif;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.col-2 {
+  width: 13.3333333333%;
+}
+
+.col-8 {
+  width: 65.3333333333%;
+}
+
+.button-searchFav {
+  margin-top: 6.5%;
+}
