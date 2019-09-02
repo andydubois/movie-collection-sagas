@@ -38,7 +38,7 @@ class Details extends Component {
     return (
 
 
-      <div>
+      <div className="react-transition swipe-right">
         <h2>{this.props.store.detailsReducer.title}</h2>
         <ul>
             {genreList}
@@ -48,7 +48,7 @@ class Details extends Component {
           alt={this.props.store.detailsReducer.name}
         />
         <p>{this.props.store.detailsReducer.description}</p>
-        <button onClick={this.backToHomePage}>Return</button>
+        <button onClick={this.backToHomePage}>Back to List</button>
         <button onClick={this.goToEditPage}>Edit Details</button>
       </div>
     );

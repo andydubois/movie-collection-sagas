@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import './App.css';
+import "./react-transitions.css"
 
 //COMPONENTS
 import Home from "../Home/Home"
@@ -12,7 +13,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className="transition-container">
           <Route exact path="/" component={Home} />
           <Route path="/details/:id" component={Details} />
           <Route path="/edit/:id" component={EditPage} />

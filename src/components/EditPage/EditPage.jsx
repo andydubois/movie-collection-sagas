@@ -73,7 +73,7 @@ class EditPage extends Component {
 
   render() {
     return (
-      <div>
+      <div className='react-transition swipe-right'>
         <p>Edit time</p>
         <form onSubmit={this.handleTitleSubmit}>
           <TextField
