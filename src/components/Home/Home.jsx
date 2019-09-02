@@ -6,12 +6,6 @@ import "./Home.css"
 import HomeListItem from "../HomeListItem/HomeListItem";
 
 //Material UI Components
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 
@@ -44,25 +38,6 @@ class Home extends Component {
           </GridList>
         </div>
       </div>
-
-      // {/* <div className='react-transition swipe-left'> */}
-      //         <Paper>
-      //           <Table>
-      //             <TableHead>
-      //               <TableRow>
-      //                 <TableCell>(Click movie posters for more details)</TableCell>
-      //                 <TableCell></TableCell>
-      //               </TableRow>
-      //             </TableHead>
-      //             <TableBody>
-      //               {this.props.store.movieReducer.map(movie => {
-      //                 return <HomeListItem movie={movie} />;
-      //               })}
-      //             </TableBody>
-      //           </Table>
-      //         </Paper>
-      //       </div>
-      //     );
     );
   }
 }
