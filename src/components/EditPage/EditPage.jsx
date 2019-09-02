@@ -78,7 +78,7 @@ class EditPage extends Component {
         <form onSubmit={this.handleTitleSubmit}>
           <TextField
             label='Edit movie title'
-            defaultValue={this.state.title}
+            defaultValue={this.props.store.detailsReducer.title}
             onChange={event => this.handleChange("title", event)}
             fullWidth
           />
