@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-//Components
+//Material UI Components
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
 
 class Details extends Component {
   //   runs nested functions on page load
@@ -40,17 +46,33 @@ class Details extends Component {
       return <li>{genre.name}</li>;
     });
     return (
-      <div className='react-transition swipe-right'>
-        <h2>{this.props.store.detailsReducer.title}</h2>
-        <ul>{genreList}</ul>
-        <img
-          src={this.props.store.detailsReducer.poster}
-          alt={this.props.store.detailsReducer.name}
-        />
-        <p>{this.props.store.detailsReducer.description}</p>
-        <button onClick={this.backToHomePage}>Back to List</button>
-        <button onClick={this.goToEditPage}>Edit Details</button>
-      </div>
+      <Paper>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell></TableCell>
+              <TableCell></TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            <TableRow>
+              <TableCell>
+                <h2>{this.props.store.detailsReducer.title}</h2>
+                <ul>{genreList}</ul>
+                <img
+                  src={this.props.store.detailsReducer.poster}
+                  alt={this.props.store.detailsReducer.title}
+                />
+              </TableCell>
+              <TableCell>
+                <p>{this.props.store.detailsReducer.description}</p>
+                <button onClick={this.backToHomePage}>Back to List</button>
+                <button onClick={this.goToEditPage}>Edit Details</button>
+              </TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </Paper>
     );
   }
 }
