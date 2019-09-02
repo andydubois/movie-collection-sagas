@@ -17,20 +17,26 @@ class Home extends Component {
 
   render() {
     return (
-      <table>
-        <thead>
-          <tr>
+      <div
+        className='react-transition swipe-left'
+        >
+        <table>
+          <thead>
+            <tr>
               <th></th>
-              <th>Click for more details</th>
-              <th>Movie Synopsis</th>
-          </tr>
-        </thead>
-        <tbody>
-          {this.props.store.movieReducer.map(movie => {
-            return <HomeListItem movie={movie} />;
-          })}
-        </tbody>
-      </table>
+              <th></th>
+              <th>
+                <h2>Movie Synopsis</h2>(Click movie posters for more details)
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.props.store.movieReducer.map(movie => {
+              return <HomeListItem movie={movie} />;
+            })}
+          </tbody>
+        </table>
+      </div>
     );
   }
 }
