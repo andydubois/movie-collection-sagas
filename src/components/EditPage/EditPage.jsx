@@ -16,7 +16,13 @@ class EditPage extends Component {
   //   runs nested functions on page load
   componentDidMount() {
     console.log(this.state);
+    //attempt at getting values to stay as default values in inputs even after page refresh
     this.getDetails();
+    this.setState({
+      id: this.props.store.detailsReducer.id,
+      title: this.props.store.detailsReducer.title,
+      description: this.props.store.detailsReducer.description
+    });
   }
 
   //makes sure details page will reload with information even when refreshed
@@ -36,7 +42,7 @@ class EditPage extends Component {
     console.log(this.state.title, this.state.description);
   };
 
-  //function to run when submit button is clicked and "submits" form
+  //function to run when submit button is clicked and "submits" form under title
   handleTitleSubmit = event => {
     event.preventDefault();
     //take current local state and sends to reducer
@@ -44,7 +50,20 @@ class EditPage extends Component {
       type: "CHANGE_TITLE",
       payload: this.state
     });
-    console.log('changing title to', this.state.title)
+    console.log("changing title to", this.state.title);
+    this.props.history.push(`/details/${this.props.match.params.id}`);
+  };
+
+  //function to run when submit button is clicked and "submits" form under description
+  handleDescriptionSubmit = event => {
+    event.preventDefault();
+    //take current local state and sends to reducer
+    this.props.dispatch({
+      type: "CHANGE_DESCRIPTION",
+      payload: this.state
+    });
+    console.log("changing description to", this.state.description);
+    this.props.history.push(`/details/${this.props.match.params.id}`);
   };
 
   //returns user to previous details page
@@ -67,16 +86,17 @@ class EditPage extends Component {
             Submit
           </Button>
         </form>
-        <form>
+        <br />
+        <form onSubmit={this.handleDescriptionSubmit}>
           <TextField
             label='Edit movie description'
-            defaultValue={this.props.store.detailsReducer.description}
+            defaultValue={this.state.description}
             onChange={event => this.handleChange("description", event)}
             multiline={true}
             rows={10}
             fullWidth
           />
-          <Button className='nextButton' variant='contained'>
+          <Button type='submit' className='nextButton' variant='contained'>
             Submit
           </Button>
         </form>
@@ -85,7 +105,7 @@ class EditPage extends Component {
           onClick={this.returnToDetailPage}
           variant='contained'
           color='secondary'>
-          Reset
+          Back
         </Button>
       </div>
     );

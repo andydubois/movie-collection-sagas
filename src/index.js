@@ -61,13 +61,29 @@ function* getGenres(action) {
     }
 }
 
+//Changes title for specified movie in database
 function* setTitle(action) {
     console.log('changing title to', action.payload);
-    let id = action.payload.id
-    let title = action.payload.title
     console.log("index.js setTitle", action.payload.id, action.payload.title);
     try {
-        yield axios.put(`api/details/updateTitle/${id}`, action.payload.title);
+        yield axios.put(`api/details/updateTitle`, action.payload);
+//retrieves updated data from server with new title
+        yield put ({
+            type: "FETCH_DETAILS",
+            payload: action.payload.id
+        })
+    } catch (error) {
+        console.log('error in POST', error);
+    }
+}
+
+//Changes description for specified movie in database
+function* setDescription(action) {
+    console.log('changing description to', action.payload);
+    console.log("index.js setDescription", action.payload.id, action.payload.description);
+    try {
+        yield axios.put(`api/details/updateDescription`, action.payload);
+//retrieves updated data from server with new description
         yield put ({
             type: "FETCH_DETAILS",
             payload: action.payload.id
@@ -83,6 +99,7 @@ function* rootSaga() {
     yield takeEvery("FETCH_DETAILS", getDetails)
     yield takeEvery("FETCH_GENRES", getGenres)
     yield takeEvery("CHANGE_TITLE", setTitle)
+    yield takeEvery("CHANGE_DESCRIPTION", setDescription)
 }
 
 // Create sagaMiddleware

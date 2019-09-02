@@ -34,15 +34,27 @@ router.get("/genre/:id", (req, res) => {
     });
 });
 
-router.put("/updateTitle/:id", (req, res) => {
+router.put("/updateTitle", (req, res) => {
   const queryText = `UPDATE "movies" SET "title" = $1 WHERE "id" = $2`;
   pool
-    .query(queryText, [req.body, req.params.id])
+    .query(queryText, [req.body.title, req.body.id])
     .then(() => {
       res.sendStatus(200);
     })
     .catch(error => {
-      console.log("error completing title change in server side PUT");
+      console.log("error completing title change in server side PUT", error);
+    });
+});
+
+router.put("/updateDescription", (req, res) => {
+  const queryText = `UPDATE "movies" SET "description" = $1 WHERE "id" = $2`;
+  pool
+    .query(queryText, [req.body.description, req.body.id])
+    .then(() => {
+      res.sendStatus(200);
+    })
+    .catch(error => {
+      console.log("error completing description change in server side PUT", error);
     });
 });
 
