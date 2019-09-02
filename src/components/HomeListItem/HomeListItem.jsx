@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
+//Material UI Components
+import TableCell from "@material-ui/core/TableCell";
+import TableRow from "@material-ui/core/TableRow";
+
 class Home extends Component {
   //retrieves details for movie with specified ID and saves in reducer
   getDetails() {
@@ -27,21 +31,22 @@ class Home extends Component {
 
   render() {
     return (
-      <tr>
-        <td>
+      <TableRow>
+        {/* <TableCell>
           <h2>{this.props.movie.title}</h2>
-        </td>
-        <td>
+        </TableCell> */}
+        <TableCell>
+          <h2>{this.props.movie.title}</h2>
           <img
             src={this.props.movie.poster}
             alt={this.props.movie.name}
             onClick={this.goToDetails}
           />
-        </td>
-        <td>
+        </TableCell>
+        <TableCell>
           <p>{this.props.movie.description}</p>
-        </td>
-      </tr>
+        </TableCell>
+      </TableRow>
     );
   }
 }
