@@ -5,6 +5,10 @@ import { withRouter } from "react-router-dom";
 //Material UI Components
 import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
+import GridListTileBar from "@material-ui/core/GridListTileBar";
+import GridListTile from "@material-ui/core/GridListTile";
+import IconButton from "@material-ui/core/IconButton";
+import Info from "@material-ui/icons/Info";
 
 class Home extends Component {
   //retrieves details for movie with specified ID and saves in reducer
@@ -31,22 +35,23 @@ class Home extends Component {
 
   render() {
     return (
-      <TableRow>
-        {/* <TableCell>
-          <h2>{this.props.movie.title}</h2>
-        </TableCell> */}
-        <TableCell>
-          <h2>{this.props.movie.title}</h2>
-          <img
-            src={this.props.movie.poster}
-            alt={this.props.movie.name}
-            onClick={this.goToDetails}
-          />
-        </TableCell>
-        <TableCell>
-          <p>{this.props.movie.description}</p>
-        </TableCell>
-      </TableRow>
+      <GridListTile key={this.props.movie.name}>
+        <img
+          src={this.props.movie.poster}
+          alt={this.props.movie.title}
+        />
+        <GridListTileBar
+        //   title={this.props.movie.title}
+          subtitle={<span>{this.props.movie.title}</span>}
+          actionIcon={
+            <IconButton
+              aria-label={`info about ${this.props.movie.title}`}
+              className="icon">
+              <Info className="icon" onClick={this.goToDetails}/>
+            </IconButton>
+          }
+        />
+      </GridListTile>
     );
   }
 }

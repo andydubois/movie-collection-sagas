@@ -1,0 +1,15 @@
+.icon {
+    color: white;
+  }
+
+  .gridList {
+    width: 500;
+    height: 450
+  }
+
+  .gridContainer {
+    display: "flex";
+    flex-wrap: "wrap";
+    justify-content: "space-around";
+    overflow: "hidden";
+  }
