@@ -26,7 +26,7 @@ class Details extends Component {
       payload: this.props.match.params.id
     });
   }
-
+  //makes sure genre list reloads when refreshed
   getGenres() {
     this.props.dispatch({
       type: "FETCH_GENRES",
@@ -39,6 +39,7 @@ class Details extends Component {
     this.props.history.push("/");
   };
 
+  //routes to edit page
   goToEditPage = action => {
     this.props.history.push(`/edit/${this.props.match.params.id}`);
   };
@@ -49,9 +50,10 @@ class Details extends Component {
       return <li>{genre.name}</li>;
     });
     return (
+      //react-transition adds transitions between pages
       <div className='detailContainer react-transition swipe-right container'>
         <Header title={`"${this.props.store.detailsReducer.title}"`} />
-        <Paper>
+        <Paper className='paper'>
           <Table className='detailContainer'>
             <TableHead>
               <TableRow>
@@ -62,14 +64,15 @@ class Details extends Component {
             <TableBody>
               <TableRow>
                 <TableCell>
-                  <h2>{this.props.store.detailsReducer.title}</h2>
-                  <ul>{genreList}</ul>
                   <img
                     src={this.props.store.detailsReducer.poster}
                     alt={this.props.store.detailsReducer.title}
                   />
                 </TableCell>
                 <TableCell>
+                  <h2>{this.props.store.detailsReducer.title}</h2>
+                  {/*list genres of movie */}
+                  <ul>{genreList}</ul>
                   <p>{this.props.store.detailsReducer.description}</p>
                   <Button
                     variant='contained'

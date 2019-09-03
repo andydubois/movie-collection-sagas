@@ -37,6 +37,7 @@ function* getDetails(action) {
     try {
         let response = yield axios.get(`/api/details/${action.payload}`);
         console.log('details GET saga response', response.data);
+        //gives selected movie details to detail reducer
         yield put ({
             type: 'SET_DETAILS',
             payload: response.data
@@ -52,6 +53,7 @@ function* getGenres(action) {
     try {
         let response = yield axios.get(`/api/details/genre/${action.payload}`);
         console.log('genre GET saga response', response.data);
+        //gives genre info to genre reducer
         yield put ({
             type: 'SET_GENRES',
             payload: response.data
@@ -137,15 +139,6 @@ const detailsReducer = (state = [], action) => {
                 return state;
     }
 }
-
-// const titleChangeReducer = (state = "", action) => {
-//     switch(action.type) {
-//         case "CHANGE_TITLE":
-//             return action.payload
-//         default:
-//             return state
-//     }
-// }
 
 // Create one store that all components can use
 const storeInstance = createStore(

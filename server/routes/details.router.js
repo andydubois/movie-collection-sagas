@@ -34,6 +34,7 @@ router.get("/genre/:id", (req, res) => {
     });
 });
 
+//edits title in database
 router.put("/updateTitle", (req, res) => {
   const queryText = `UPDATE "movies" SET "title" = $1 WHERE "id" = $2`;
   pool
@@ -46,6 +47,7 @@ router.put("/updateTitle", (req, res) => {
     });
 });
 
+//edits description is database
 router.put("/updateDescription", (req, res) => {
   const queryText = `UPDATE "movies" SET "description" = $1 WHERE "id" = $2`;
   pool

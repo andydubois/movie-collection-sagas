@@ -26,6 +26,7 @@ class Home extends Component {
   }
 
   goToDetails = action => {
+    //fetches detail and genre info before routing to detail page
     this.getDetails();
     this.getGenres();
     this.props.history.push(`/details/${this.props.movie.id}`);

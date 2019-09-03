@@ -8,12 +8,13 @@ import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import { withStyles } from "@material-ui/styles";
 
+//allows resizing of text within edit fields so its easier to read
 const styles = theme => ({
   resize:{
     fontSize:15
   },
   titleResize: {
-      fontSize: 25
+      fontSize: 20
   }
 })
 
