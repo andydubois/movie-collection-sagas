@@ -13,3 +13,7 @@
     justify-content: "space-around";
     overflow: "hidden";
   }
+
+.listHeader  {
+    color: white;
+  }

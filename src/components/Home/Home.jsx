@@ -9,6 +9,7 @@ import HomeListItem from "../HomeListItem/HomeListItem";
 //Material UI Components
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
+import Info from "@material-ui/icons/Info";
 
 import ListSubheader from "@material-ui/core/ListSubheader";
 
@@ -29,9 +30,9 @@ class Home extends Component {
       <div className='react-transition swipe-right container movieGrid'>
         <Header title={"Home Page"} />
         <div className='gridContainer'>
-          <GridList cellHeight={180} className='gridList'>
+          <GridList cellHeight={180} className='gridList listHeader'>
             <GridListTile key='Subheader' cols={2} style={{ height: "auto" }}>
-              <ListSubheader component='div'>Movie List</ListSubheader>
+              <h6>Click <Info /> for more info</h6>
             </GridListTile>
             {this.props.store.movieReducer.map(movie => {
               return <HomeListItem movie={movie} />;

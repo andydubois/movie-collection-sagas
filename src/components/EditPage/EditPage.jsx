@@ -6,6 +6,16 @@ import Header from "../Header/Header";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
+import { withStyles } from "@material-ui/styles";
+
+const styles = theme => ({
+  resize:{
+    fontSize:15
+  },
+  titleResize: {
+      fontSize: 25
+  }
+})
 
 class EditPage extends Component {
   //storing title and description of selected movie as state
@@ -74,26 +84,34 @@ class EditPage extends Component {
   };
 
   render() {
+
+const {classes} = this.props
+
     return (
       <div className='react-transition swipe-right container'>
         <div className='row'>
           <div className='col'></div>
           <div className='col-6'>
+            <Header title={"Edit Movie Details"} />
             <Paper>
-              <Header title={"Edit Movie Details"} />
-              <p>Edit time</p>
               <form onSubmit={this.handleTitleSubmit}>
                 <TextField
                   label='Edit movie title'
                   defaultValue={this.props.store.detailsReducer.title}
                   onChange={event => this.handleChange("title", event)}
                   fullWidth
+                  InputProps={{
+                    classes: {
+                      input: classes.titleResize
+                    }
+                  }}
                 />
                 <Button
                   type='submit'
                   className='nextButton'
-                  variant='contained' color="primary">
-                  Submit
+                  variant='contained'
+                  color='primary'>
+                  Submit Changes
                 </Button>
               </form>
               <br />
@@ -105,13 +123,19 @@ class EditPage extends Component {
                   multiline={true}
                   rows={10}
                   fullWidth
+                  InputProps={{
+                    classes: {
+                      input: classes.resize
+                    }
+                  }}
+                  className={classes.resize}
                 />
                 <Button
                   type='submit'
                   className='nextButton'
                   variant='contained'
-                  color="primary">
-                  Submit
+                  color='primary'>
+                  Submit Changes
                 </Button>
               </form>
               <Button
@@ -133,4 +157,4 @@ const mapStateToProps = store => ({
   store
 });
 
-export default connect(mapStateToProps)(EditPage);
+export default withStyles(styles)(connect(mapStateToProps)(EditPage));

@@ -8,8 +8,6 @@ import "./App.css";
 import Home from "../Home/Home";
 import Details from "../Details/Details";
 import EditPage from "../EditPage/EditPage";
-import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
-
 
 class App extends Component {
   // Renders the entire app on the DOM

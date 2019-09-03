@@ -8,6 +8,7 @@ import GridListTile from "@material-ui/core/GridListTile";
 import IconButton from "@material-ui/core/IconButton";
 import Info from "@material-ui/icons/Info";
 
+
 class Home extends Component {
   //retrieves details for movie with specified ID and saves in reducer
   getDetails() {
