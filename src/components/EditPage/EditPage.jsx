@@ -89,7 +89,7 @@ class EditPage extends Component {
 const {classes} = this.props
 
     return (
-      <div className='react-transition swipe-right container'>
+      <div className='editContainer react-transition swipe-right container'>
         <div className='row'>
           <div className='col'></div>
           <div className='col-6'>

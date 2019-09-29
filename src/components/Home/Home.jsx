@@ -26,6 +26,7 @@ class Home extends Component {
   }
 
   render() {
+    console.log(this.props.store);
     return (
       <div className='react-transition swipe-right container movieGrid'>
         <Header title={"Home Page"} />

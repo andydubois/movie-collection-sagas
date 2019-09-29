@@ -51,7 +51,7 @@ class Details extends Component {
     });
     return (
       //react-transition adds transitions between pages
-      <div className='detailContainer react-transition swipe-right container'>
+      <div className='detailContainer detailsBox react-transition swipe-right container'>
         <Header title={`"${this.props.store.detailsReducer.title}"`} />
         <Paper className='paper'>
           <Table className='detailContainer'>

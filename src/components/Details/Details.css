@@ -6,3 +6,7 @@
 .detailContainer {
     font-family: "evolveLight";
 }
+
+.detailsBox {
+  height: 100vh !important;
+}
