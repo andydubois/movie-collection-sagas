@@ -4,13 +4,13 @@ Movie gallery is a static movie database that shows details (synopsis and genres
 
 ## Installation
 
--Create a database named "saga_movies_weekend",
--The queries in the tables.sql file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly.
--The project is built on Postgres, so you will need to make sure to have that installed. We recommend using Postico to run those queries as that was used to create the queries,
--Open up your editor of choice and run an npm install
--Run npm run server in your terminal
--Run npm run client in your terminal
--The npm run client command will open up a new browser tab for you!
+1. Create a database named "saga_movies_weekend"
+2. The queries in the tables.sql file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly.
+3. The project is built on Postgres, so you will need to make sure to have that installed. We recommend using Postico to run those queries as that was used to create the queries,
+4. Open up your editor of choice and run an npm install
+5. Run npm run server in your terminal
+6. Run npm run client in your terminal
+7. The npm run client command will open up a new browser tab for you!
 
 ## Usage
 
