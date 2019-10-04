@@ -22,5 +22,5 @@ Movie gallery is a static movie database that shows details (synopsis and genres
 ## Built With
 React, Redux, Redux Sagas, Express, Node.js, PostgreSQL
 
-Acknowledgement
+## Acknowledgement
 Thanks to Prime Digital Academy in Minneapolis who equipped and helped me to make this application a reality.
